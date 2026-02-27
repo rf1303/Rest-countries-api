@@ -1,6 +1,17 @@
+import { useState } from "react"
+import { getAllCountries } from '../useFetch/useFetch.js'
 
+const optionsRegion = [
+    { value: "africa", label: "Africa"},
+    { value: "america", label: "America"},
+    { value: "asia", label: "Asia"},
+    { value: "europe", label: "Europe"},
+    { value: "oceania", label: "Oceania"},
+]
 
 export const CountriesNav = () => {
+    const [ byRegion, setByRegion ] = useState("");
+
     const handleChange = (e) => {
         console.log('e.target.value:', e.target.value)
     }
@@ -12,20 +23,22 @@ export const CountriesNav = () => {
                 <input
                   type="text"
                   name=""
-                  value={e.target.value}
-                  onChange={handleChange}
+                  value=""
+                  onChange={(e) => handleChange(e)}
                   placeholder="Search fo a country..."
                   className=""
                 />
             </div>
             <select
               name=""
-              value={value}
+              value={byRegion}
               onChange={handleChange}
               className=""
             >
-              <option value="">Select...</option>
-              
+                <option value="">Filter by Region</option>
+                { optionsRegion.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
             </select>
         </div>
     </>
