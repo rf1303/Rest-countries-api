@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { getAllCountries } from '../useFetch/useFetch.js'
+import { IconSearch } from '../../public/images/IconsSvg.jsx'
 
 const optionsRegion = [
     { value: "africa", label: "Africa"},
