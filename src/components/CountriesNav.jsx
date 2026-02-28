@@ -18,9 +18,9 @@ export const CountriesNav = () => {
     }
     return (
     <>
-        <div className="">
-            <div className="">
-                <span className=""><IconSearch aria-hidden="true" /></span>
+        <div className="flex items-center justify-between mx-4 md:mx-10">
+            <div className="bg-blue-900 w-full max-w-120 py-3 flex items-center rounded-lg ">
+                <span className="w-full max-w-12 flex items-center justify-center"><IconSearch aria-hidden="true" /></span>
                 <input
                   type="text"
                   name=""

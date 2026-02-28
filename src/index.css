@@ -1,19 +1,41 @@
 @import 'tailwindcss';
 
-:root {
-  color-scheme: light dark;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+body,
+#root {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    background-color: var(--color-blue-950);
+}
+
 
 @theme {
     --color-blue-900: hsl(209, 23%, 22%);
-    --color-blue-950:  hsl(207, 26%, 17%);
+    --color-blue-950: hsl(207, 26%, 17%);
     --color-grey-950: hsl(200, 15%, 8%);
     --color-grey-400: hsl(0, 0%, 50%);
     --color-grey-350: hsl(0, 0%, 59%);
     --color-grey-300: hsl(0, 0%, 70%);
     --color-grey-250: hsl(0, 0%, 77%);
     --color-grey-50: hsl(0, 0%, 99%);
-    --color-white: hsl(0, 100%, 100%); 
+    --color-white: hsl(0, 100%, 100%);
 
     --text-preset-1: 2rem;
     --text-preset-2: 1.5rem;
@@ -22,38 +44,12 @@
     --text-preset-5: .875rem;
     --text-preset-6: .75rem;
 
-}
-*{
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
+    --spacing-clampHeader: clamp(1rem, -0.1518rem + 5.7589vw, 5.03125rem);
+    --spacing-clampHeader01: clamp(1rem, -0.1186rem + 5.5928vw, 2.5625rem);
+
 }
 
-*,
-*::before,
-*::after{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
 
-html{
-    scroll-behavior: smooth;
-}
-
-body{
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-}
-
-/* #root { */
-/*     max-width: 100%; */
-/*     background-color: var(--color-blue-950); */
-/*     margin: 0; */
-/*     padding: 0; */
-/* } */
 /* @media (prefers-color-scheme: light) { */
 /*   :root { */
 /*     color: #213547; */
