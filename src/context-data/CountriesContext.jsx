@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useRef } from 'react';
+import { createContext, useState, useRef } from 'react';
 
-const SettingRestCountries = createContext();
+export const SettingRestCountries = createContext();
 
 export const SetRestCountries = ({ children }) => {
     const [open, setOpen] = useState(false);
@@ -23,14 +23,6 @@ export const SetRestCountries = ({ children }) => {
         optionRefs, optionsRegion, listboxId
     }}>{children}</SettingRestCountries.Provider>
     );
-}
-
-export const useSettingCountries = () => {
-    const context = useContext(SettingRestCountries);
-    if (!context) {
-        throw new Error('useSettingCountries debe usarsa dentro de SetRestCountries');
-    }
-    return context;
 }
 
 

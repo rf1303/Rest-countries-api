@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import { useSettingCountries } from '../context-data/useSettingCountries.js'
 import { getAllCountries } from '../useFetch/useFetch.js'
 import { SearchByName } from './SearchByName.jsx'
 import { IconSearch, IconFilter } from '../../public/images/IconsSvg.jsx'
@@ -13,13 +14,14 @@ import { IconSearch, IconFilter } from '../../public/images/IconsSvg.jsx'
 const optionsRegion = ["Africa", "America", "Asia", "Europa", "Oceania"];
 
 export const CountriesNav = () => {
-    const [open, setOpen] = useState(false);
-    const [byRegion, setByRegion] = useState(null);
-    const [focusIndex, setFocusIndex] = useState(-1);
-
-    const regionRef = useRef();
-    const buttonRef = useRef();
-    const listboxId = "region-listbox";
+    const { open, setOpen, byRegion, setByRegion, focusIndex, setFocusIndex, regionRef, buttonRef, listboxId } = useSettingCountries();
+    // const [open, setOpen] = useState(false);
+    // const [byRegion, setByRegion] = useState(null);
+    // const [focusIndex, setFocusIndex] = useState(-1);
+    //
+    // const regionRef = useRef();
+    // const buttonRef = useRef();
+    // const listboxId = "region-listbox";
 
     const handleClick = () => {
         setOpen(o => !o);
