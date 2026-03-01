@@ -25,6 +25,15 @@ body,
     background-color: var(--color-blue-950);
 }
 
+@font-face {
+    font-family: 'nunitoSans';
+    src: url('../public/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.woff2'),
+        url('../public/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf');
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+}
+
 
 @theme {
     --color-blue-900: hsl(209, 23%, 22%);
@@ -43,6 +52,8 @@ body,
     --text-preset-4: 1rem;
     --text-preset-5: .875rem;
     --text-preset-6: .75rem;
+
+    --font-nunitoSans: 'nunitoSans', sans-serif;
 
     --spacing-clampHeader: clamp(1rem, -0.1518rem + 5.7589vw, 5.03125rem);
     --spacing-clampHeader01: clamp(1rem, -0.1186rem + 5.5928vw, 2.5625rem);
