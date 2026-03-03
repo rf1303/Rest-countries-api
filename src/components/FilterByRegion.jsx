@@ -13,17 +13,42 @@ export const RegionsOptions = () => {
         buttonRef.current?.focus();
     }
     const handleOptionsKeys = useCallback((e, index) => {
-        const { setFocusIndex, optionsRegion, setOpen, buttonref } = useSettingCountries();
         switch (e.key) {
             case "ArrowDown":
                 e.preventDefault();
                 setFocusIndex((index + 1) % optionsRegion.length)
                 break;
-
-            default:
+            case "ArrowUp":
+                e.preventDefault();
+                setFocusIndex((index - 1 + optionsRegion.length) % optionsRegion.length);
+                break;
+            case "Enter":
+            case " ":
+                e.preventDefault();
+                handleSelect(optionsRegion[index]);
+                break;
+            case "Escape":
+                e.preventDefault();
+                setOpen(false);
+                setFocusIndex(-1);
+                buttonRef.current?.focus(); // regresa foco al trigger
+                break;
+            case "Tab":
+                setOpen(false);
+                setFocusIndex(-1);
+                break;
+            case "Home":
+                e.preventDefault();
+                setFocusIndex(0);
+                break;
+            case "End":
+                e.preventDefault();
+                setFocusIndex(optionsRegion.length - 1);
                 break;
         }
     }, []);
+
+
     return (
         <ul ref={listRef} id={listboxId} role="listbox"
             aria-labelledby="region-trigger"
