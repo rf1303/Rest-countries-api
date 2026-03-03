@@ -35,7 +35,8 @@ body,
 
 
 @theme {
-    --color-blue-900: hsl(209, 23%, 22%);
+    --color-blue-900: hsla(209, 23%, 22%, 100%);
+    --color-blue-focus: hsl(209, 23%, 32%);
     --color-blue-950: hsl(207, 26%, 17%);
     --color-grey-950: hsl(200, 15%, 8%);
     --color-grey-400: hsl(0, 0%, 50%);

@@ -2,17 +2,28 @@ import { useState, useEffect, useRef, useCallback } from "react"
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
 
 
-
 export const RegionsOptions = () => {
-    const { open, setOpen, listRef, byRegion, setByRegion, focusIndex, setFocusIndex, optionRef, listboxId, optionsRegion, buttonRef } = useSettingCountries();
 
-    const handleSelect = (region) => {
-        setByRegion(region);
-        setOpen(false);
-        setFocusIndex(-1);
-        buttonRef.current?.focus();
-    }
-    const handleOptionsKeys = useCallback((e, index) => {
+    const { open, setOpen, listRef, byRegion, setByRegion, focusIndex, setFocusIndex, optionRefs, listboxId, optionsRegion, buttonRef, regionRef } = useSettingCountries();
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (regionRef.current && !regionRef.current.contains(e.target)) {
+                setOpen(false);
+                setFocusIndex(-1);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    useEffect(() => {
+        if (open && focusIndex >= 0) {
+            optionRefs.current[focusIndex]?.focus();
+        }
+    }, [focusIndex, open]);
+
+    const handleOptionsKeys = (e, index) => {
         switch (e.key) {
             case "ArrowDown":
                 e.preventDefault();
@@ -46,7 +57,14 @@ export const RegionsOptions = () => {
                 setFocusIndex(optionsRegion.length - 1);
                 break;
         }
-    }, []);
+    };
+
+    const handleSelect = (region) => {
+        setByRegion(region);
+        setOpen(false);
+        setFocusIndex(-1);
+        buttonRef.current?.focus();
+    }
 
 
     return (
@@ -54,26 +72,27 @@ export const RegionsOptions = () => {
             aria-labelledby="region-trigger"
             aria-activedescendant={
                 focusIndex >= 0 ? `region-option-${focusIndex}` : undefined}
-            className={`absolute inset-0 z-30 bg-blue-900 
-                     max-w-50 
+            className={`bg-blue-900 absolute inset-x-0 top-14  
+                     max-w-50 w-full px-3 py-3 z-50 
                      rounded-t-sm rounded-b-md transition-all
-                     duration-500 origin-top ${open
-                    ? "opacity-100 scale-y-100 shadow-xl shadow-black/90"
+                     duration-300 origin-top ${open
+                    ? "opacity-100 scale-y-100 shadow-xl shadow-black/30"
                     : "opacity-0 scale-y-1 pointer-events-none "}`
             }>
             {optionsRegion.map((region, i) => {
                 const isSelect = byRegion === region;
                 return (
                     <li key={region} id={`region-option-${i}`}
-                        ref={(el) => (optionRef.current[i] = el)}
+                        ref={(el) => (optionRefs.current[i] = el)}
                         aria-selected={isSelect} role="option"
                         tabIndex={open ? 0 : -1}
                         onClick={() => handleSelect(region)}
                         onKeyDown={(e) => handleOptionsKeys(e, i)}
                         className={`flex items-center text-preset-5
-                        transition-colors duration-700 focus:outline-none
-                        ${isSelect ? "bg-grey-300 text-blue-900"
-                                : "text-white hover:bg-blue-900/60 focus-visible:bg-blue-900/70"}`}
+                        transition-colors duration-300 focus:outline-none
+                        ${focusIndex === i ? "bg-blue-focus text-white rounded-sm"
+                                : "text-white hover:bg-blue-focus focus-visible:bg-blue-focus"}
+                        `}
                     >
                         {region}
                         {isSelect && (<span className="sr-only">(seleccionado)</span>)}
@@ -81,5 +100,6 @@ export const RegionsOptions = () => {
                 );
             })}
         </ul>
+
     );
 }
