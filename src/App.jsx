@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { HomeCountryMain } from './pages/HomeMainPage.jsx'; 
 import { HomeCountryDetail } from './pages/HomeCountryDetail.jsx'; 
-import { getAllCountries } from './useFetch/useFetch.js'
+import { getAllCountries } from './sevices/api.js'
 import { CountriesNav } from './components/CountriesNav.jsx';
 
 function App() {

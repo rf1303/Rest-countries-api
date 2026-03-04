@@ -1,3 +1,5 @@
+import { CountriesList } from '../components/CountriesList.jsx';
+import { CountriesNav } from '../components/CountriesNav.jsx';
 import { HeaderPage } from '../components/Header-theme.jsx';
 import { Outlet } from 'react-router-dom';
 
@@ -6,6 +8,7 @@ export const HomeCountryMain = () => {
         <div className='grid gap-4 font-nunitoSans md:gap-10'>
             <HeaderPage />
             <main className="">
+                <CountriesList />
                 <Outlet />
             </main>
         </div>

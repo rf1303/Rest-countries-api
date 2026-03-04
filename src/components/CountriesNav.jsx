@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
-import { getAllCountries } from '../useFetch/useFetch.js'
+import { getAllCountries } from '../sevices/api.js'
 import { SearchByName } from './SearchByName.jsx'
 import { IconSearch, IconFilter } from '../../public/images/IconsSvg.jsx'
 import { RegionsOptions } from "./FilterByRegion.jsx"
@@ -42,7 +42,7 @@ export const CountriesNav = () => {
                 {/* className="text-preset-6 text-white md:text-preset-5 max-w-50 bg-blue-900 rounded-lg py-4 px-5" */}
                 <div ref={regionRef} className="relative">
                     <button ref={buttonRef} id="region-trigger"
-                        typeof="button" aria-haspopup="listbox"
+                        type="button" aria-haspopup="listbox"
                         aria-controls={listboxId} aria-expanded={open}
                         aria-label={byRegion
                             ? `Region Selected ${byRegion}. Change region`
