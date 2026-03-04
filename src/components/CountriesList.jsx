@@ -9,11 +9,11 @@ export const CountriesList = () => {
     
     if(loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
     if(error) return <p className="text-red-800 text-2xl">Error: {error}</p>
-
+    console.log('countries[0].cca3:', countries[0].cca3)
     return (
         <div className="">
         {countries?.map((item) => (
-          <article key={item.name}>
+          <article key={item.cca3}>
             
           </article>
         ))} 
