@@ -1,14 +1,19 @@
 import { useState, useEffect, useRef } from "react"
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
-import { getAllCountries } from '../sevices/api.js'
 import { SearchByName } from './SearchByName.jsx'
 import { IconSearch, IconFilter } from '../../public/images/IconsSvg.jsx'
 import { RegionsOptions } from "./FilterByRegion.jsx"
+import { CountriesList } from "./CountriesList.jsx"
+import { getAllCountries, getRegionCountries } from '../sevices/api.js'
+import { useFetch } from '../hook/useFetch.jsx'
 
 const optionsRegion = ["Africa", "Americas", "Asia", "Europa", "Oceania"];
 
 export const CountriesNav = () => {
-    const { open, setOpen, byRegion, setByRegion, focusIndex, setFocusIndex, regionRef, buttonRef, listboxId } = useSettingCountries();
+    const { open, setOpen, byRegion, setFocusIndex, regionRef, buttonRef, listboxId } = useSettingCountries();
+
+    // const fetchName = !byRegion ? getAllCountries : getRegionCountries(byRegion)
+    // const { data: countries, loading, error } = useFetch(fetchName);
 
     const handleClick = () => {
         setOpen(o => !o);
@@ -56,6 +61,7 @@ export const CountriesNav = () => {
                     <RegionsOptions />
                 </div>
             </div>
+            <CountriesList byRegion={byRegion} />
         </>
     );
 }

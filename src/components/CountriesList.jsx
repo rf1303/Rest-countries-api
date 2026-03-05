@@ -1,23 +1,20 @@
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
-import { getAllCountries } from '../sevices/api.js'
+import { getAllCountries, getRegionCountries } from '../sevices/api.js'
 import { useFetch } from '../hook/useFetch.jsx'
 import { CountriesNav } from '../components/CountriesNav.jsx';
 
-export const CountriesList = () => {
-    const { byRegion } = useSettingCountries();
-    if (!byRegion) {
-        const { data: countries, loading, error } = useFetch(getAllCountries);
-    } else {
-        const { data: countries, loading, error } = useFetch(getRegionCountries(byRegion));
-    }
+export const CountriesList = ({ byRegion }) => {
+    // const nameAll = useFetch(getAllCountries);
+    // console.log('nameAll:', nameAll)
+    const fetchName = !byRegion ? getAllCountries : getRegionCountries(byRegion)
+    const { data: countries, loading, error } = useFetch(fetchName);
 
-    if (loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
-    if (error) return <p className="text-red-800 text-2xl">Error: {error}</p>
     console.log('byRegion:', byRegion)
     console.log('countries:', countries)
+    if (loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
+    if (error) return <p className="text-red-800 text-2xl">Error: {error}</p>
     return (
         <>
-            <CountriesNav />
             <div className="w-full grid sm:grid-cols-[repeat(auto-fill,264px)] items-center justify-items-center gap-10 mx-auto sm:max-w-150 sm:gap-18 xl:max-w-318">
                 {countries?.map((item) => (
                     <a key={item.cca3} className='w-full max-w-66 h-84   bg-blue-900 rounded-md text-white'>

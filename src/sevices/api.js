@@ -1,6 +1,13 @@
 
 const urlMain = "https://restcountries.com/v3.1";
 
+const regionMap = {
+    'europa': 'Europe',
+    'américa': 'Americas',
+    'asia': 'Asia',
+    'áfrica': 'Africa',
+    'oceanía': 'Oceania'
+};
 const fetchData = async (filterByRegion) => {
     try {
         const response = await fetch(`${urlMain}${filterByRegion}`);
@@ -21,6 +28,7 @@ export const getAllCountries = () => {
 }
 
 export const getRegionCountries = (continente) => {
-    return fetchData(`/region/${continente}`); 
+    const regions = regionMap[continente.toLocaleLowerCase()] || continente;
+    return fetchData(`/region/${regions}`); 
 }
 
