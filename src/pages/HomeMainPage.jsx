@@ -7,7 +7,7 @@ export const HomeCountryMain = () => {
     return (
         <div className='grid gap-4 font-nunitoSans md:gap-10'>
             <HeaderPage />
-            <main className="">
+            <main className="w-full grid place-items-center">
                 <CountriesList />
                 <Outlet />
             </main>

@@ -5,18 +5,26 @@ import { useFetch } from '../hook/useFetch.jsx'
 
 export const CountriesList = () => {
     const { byRegion } = useSettingCountries();
-    const { data: countries, loading, error }= useFetch(getAllCountries);
-    
-    if(loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
-    if(error) return <p className="text-red-800 text-2xl">Error: {error}</p>
-    console.log('countries[0].cca3:', countries[0].cca3)
+    const { data: countries, loading, error } = useFetch(getAllCountries);
+
+    if (loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
+    if (error) return <p className="text-red-800 text-2xl">Error: {error}</p>
+    console.log('countries:', countries)
     return (
-        <div className="">
-        {countries?.map((item) => (
-          <article key={item.cca3}>
-            
-          </article>
-        ))} 
+        <div className="w-full grid grid-cols-[repeat(auto-fill,264px)] items-center justify-items-center gap-10 sm:max-w-150 sm:gap-18 xl:max-w-318">
+            {countries?.map((item) => (
+                <article key={item.cca3} className='w-full max-w-66 h-82  bg-blue-900 rounded-md text-white'>
+                    <img src={item.flags.svg} alt={item.flags.alt} className="w-full h-40 object-cover rounded-t-md" />
+                    <div className="grid gap-4">
+                        <h2 className="country__names">{item.name.common}</h2>
+                        <div className="grid gap-2 leading-none">
+                            <p className="country__items">Population: <span className="items__detail">{item.population}</span></p>
+                            <p className="country__items">Region: <span className="items__detail">{item.region}</span></p>
+                            <p className="country__items">Capital: <span className="items__detail">{item.capital}</span></p>
+                        </div>
+                    </div>
+                </article>
+            ))}
         </div>
     );
 }

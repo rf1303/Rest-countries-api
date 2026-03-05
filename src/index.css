@@ -60,6 +60,17 @@ body,
 
 }
 
+.country__names{
+    @apply text-preset-3 font-extrabold  leading-none
+}
+
+.country__items {
+    @apply text-preset-4 font-semibold 
+}
+
+.items__detail {
+    @apply font-light 
+}
 
 /* @media (prefers-color-scheme: light) { */
 /*   :root { */

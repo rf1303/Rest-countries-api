@@ -17,7 +17,6 @@ const fetchData = async (filterByRegion) => {
 };
 
 export const getAllCountries = () => {
-    return fetchData("/all?fields=name,flags,capital,population,cca3");  
+    return fetchData("/all?fields=name,flags,capital,population,cca3,region");  
 }
 
-console.log('getAllCountries:', getAllCountries());
