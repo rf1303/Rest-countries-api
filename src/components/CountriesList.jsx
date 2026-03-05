@@ -11,7 +11,7 @@ export const CountriesList = () => {
     if (error) return <p className="text-red-800 text-2xl">Error: {error}</p>
     console.log('countries:', countries)
     return (
-        <div className="w-full grid grid-cols-[repeat(auto-fill,264px)] items-center justify-items-center gap-10 sm:max-w-150 sm:gap-18 xl:max-w-318">
+        <div className="w-full grid sm:grid-cols-[repeat(auto-fill,264px)] items-center justify-items-center gap-10 mx-auto sm:max-w-150 sm:gap-18 xl:max-w-318">
             {countries?.map((item) => (
                 <article key={item.cca3} className='w-full max-w-66 h-82  bg-blue-900 rounded-md text-white'>
                     <img src={item.flags.svg} alt={item.flags.alt} className="w-full h-40 object-cover rounded-t-md" />

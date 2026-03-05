@@ -37,7 +37,7 @@ export const CountriesNav = () => {
 
     return (
         <>
-            <div className="flex flex-col items-start justify-center gap-10 sm:gap-0 sm:flex-row sm:items-center sm:justify-between mx-4 md:mx-10">
+            <div className="w-full max-w-318 flex flex-col items-start justify-center gap-10 sm:gap-0 sm:flex-row sm:items-center sm:justify-between px-4 md:px-10 ">
                 <SearchByName />
                 {/* className="text-preset-6 text-white md:text-preset-5 max-w-50 bg-blue-900 rounded-lg py-4 px-5" */}
                 <div ref={regionRef} className="relative">
