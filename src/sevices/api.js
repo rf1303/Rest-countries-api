@@ -20,3 +20,7 @@ export const getAllCountries = () => {
     return fetchData("/all?fields=name,flags,capital,population,cca3,region");  
 }
 
+export const getRegionCountries = (continente) => {
+    return fetchData(`/region/${continente}`); 
+}
+

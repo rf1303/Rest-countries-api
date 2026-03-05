@@ -5,7 +5,7 @@ import { SearchByName } from './SearchByName.jsx'
 import { IconSearch, IconFilter } from '../../public/images/IconsSvg.jsx'
 import { RegionsOptions } from "./FilterByRegion.jsx"
 
-const optionsRegion = ["Africa", "America", "Asia", "Europa", "Oceania"];
+const optionsRegion = ["Africa", "Americas", "Asia", "Europa", "Oceania"];
 
 export const CountriesNav = () => {
     const { open, setOpen, byRegion, setByRegion, focusIndex, setFocusIndex, regionRef, buttonRef, listboxId } = useSettingCountries();
