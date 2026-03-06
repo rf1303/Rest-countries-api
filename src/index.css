@@ -72,6 +72,11 @@ body,
     @apply font-light 
 }
 
+.back__btn {
+    @apply w-34 py-2  rounded-md bg-blue-900 text-preset-4 flex items-center justify-center;
+    color: white
+}
+
 /* @media (prefers-color-scheme: light) { */
 /*   :root { */
 /*     color: #213547; */

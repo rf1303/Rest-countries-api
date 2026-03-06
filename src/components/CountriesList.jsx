@@ -18,7 +18,7 @@ export const CountriesList = ({ byRegion }) => {
         <>
             <div className="w-full grid sm:grid-cols-[repeat(auto-fill,264px)] items-center justify-items-center gap-10 mx-auto sm:max-w-150 sm:gap-18 xl:max-w-318">
                 {countries?.map((item) => (
-                    <a key={item.cca3} href={`/name/${item.name}`}  
+                    <a key={item.cca3} href={`/name/${item.name.common}`}  
                         className='w-full max-w-66 h-84   bg-blue-900 rounded-md text-white'>
                         <img src={item.flags.svg} alt={item.flags.alt} className="w-full h-40 object-cover rounded-t-md" />
                         <div className="grid gap-4 pt-5.5 pb-12 px-6">
