@@ -33,3 +33,9 @@ export const getRegionCountries = (continente) => {
     return fetchData(`/region/${regions}`);
 }
 
+export const getCountriesDetail = (name) => {
+    if (!name) return getAllCountries();
+    const countryName = regionMap[name.toLocaleLowerCase()] || name;
+    return fetchData(`${countryName}`);
+}
+
