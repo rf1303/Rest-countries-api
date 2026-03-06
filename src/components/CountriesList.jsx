@@ -1,4 +1,5 @@
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
+import { useCallback } from 'react'
 import { getAllCountries, getRegionCountries } from '../sevices/api.js'
 import { useFetch } from '../hook/useFetch.jsx'
 import { CountriesNav } from '../components/CountriesNav.jsx';
@@ -6,7 +7,11 @@ import { CountriesNav } from '../components/CountriesNav.jsx';
 export const CountriesList = ({ byRegion }) => {
     // const nameAll = useFetch(getAllCountries);
     // console.log('nameAll:', nameAll)
-    const fetchName = !byRegion ? getAllCountries : getRegionCountries(byRegion)
+    const fetchName = useCallback(() => {
+        if (!byRegion) return getAllCountries();
+        return getRegionCountries(byRegion);
+    }, [byRegion]);
+    /* const fetchName = useCallback(() => !byRegion ? getAllCountries : getRegionCountries(byRegion), [byRegion]); */
     const { data: countries, loading, error } = useFetch(fetchName);
 
     console.log('byRegion:', byRegion)

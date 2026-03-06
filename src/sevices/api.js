@@ -12,7 +12,7 @@ const fetchData = async (filterByRegion) => {
     try {
         const response = await fetch(`${urlMain}${filterByRegion}`);
         if (!response.ok) {
-           throw new Error(`Error ${response.status}`);
+            throw new Error(`Error ${response.status}`);
         }
         const data = await response.json();
         return data;
@@ -24,11 +24,12 @@ const fetchData = async (filterByRegion) => {
 };
 
 export const getAllCountries = () => {
-    return fetchData("/all?fields=name,flags,capital,population,cca3,region");  
+    return fetchData("/all?fields=name,flags,capital,population,cca3,region");
 }
 
 export const getRegionCountries = (continente) => {
+    if (!continente) return getAllCountries();
     const regions = regionMap[continente.toLocaleLowerCase()] || continente;
-    return fetchData(`/region/${regions}`); 
+    return fetchData(`/region/${regions}`);
 }
 

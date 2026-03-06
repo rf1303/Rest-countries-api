@@ -11,13 +11,13 @@ export const useFetch = (fetchApi) => {
                 const result = await fetchApi();
                 setData(result);
             } catch (err) {
-                console.error(error);
+                console.error(err);
                 setError(err.message)
             } finally {
                 setLoading(false);
             }
         }
         getData();
-    }, [])
+    }, [fetchApi])
     return { data, loading, error };
 }
