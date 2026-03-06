@@ -20,7 +20,7 @@ export const CountriesList = ({ byRegion }) => {
                 {countries?.map((item) => (
                     <a key={item.cca3} href={`/name/${item.name.common}`}  
                         className='w-full max-w-66 h-84   bg-blue-900 rounded-md text-white'>
-                        <img src={item.flags.svg} alt={item.flags.alt} className="w-full h-40 object-cover rounded-t-md" />
+                        <img src={item.flags.svg} alt={item.flags.alt} loading='lazy' className="w-full h-40 object-cover rounded-t-md" />
                         <div className="grid gap-4 pt-5.5 pb-12 px-6">
                             <h2 className="country__names">{item.name.common}</h2>
                             <div className="grid gap-2 leading-none">

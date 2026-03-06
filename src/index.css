@@ -73,8 +73,7 @@ body,
 }
 
 .back__btn {
-    @apply w-34 py-2  rounded-md bg-blue-900 text-preset-4 flex items-center justify-center;
-    color: white
+    @apply w-34 py-2  rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2;
 }
 
 /* @media (prefers-color-scheme: light) { */
