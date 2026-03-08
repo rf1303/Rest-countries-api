@@ -24,7 +24,7 @@ const fetchData = async (filterByRegion) => {
 };
 
 export const getAllCountries = () => {
-    return fetchData("/all?fields=name,flags,capital,population,cca3,region");
+    return fetchData("/all?fields=name,flags,capital,population,cca3,region,borders");
 }
 
 export const getRegionCountries = (continente) => {
@@ -34,8 +34,12 @@ export const getRegionCountries = (continente) => {
 }
 
 export const getCountriesDetail = (name) => {
-    if (!name) return getAllCountries();
     const countryName = regionMap[name.toLocaleLowerCase()] || name;
     return fetchData(`/name/${countryName}`);
 }
 
+export const getBorderCountries = (borderCountry) => {
+    const countriesB = borderCountry || {};
+    console.log('countriesB:', countriesB)
+    return fetchData(`/alpha?codes=${countriesB}`) 
+}

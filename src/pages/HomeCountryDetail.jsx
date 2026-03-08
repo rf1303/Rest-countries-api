@@ -1,18 +1,31 @@
-import { useCallback } from 'react'
+import { useCallback, useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getAllCountries, getCountriesDetail } from '../sevices/api.js'
+import { getAllCountries, getBorderCountries, getCountriesDetail } from '../sevices/api.js'
 import { useFetch } from '../hook/useFetch.jsx'
 
 export const HomeCountryDetail = () => {
     const { name } = useParams();
+    const [borderCountries, setBorderCountries] = useState(null);
     const fetchName = useCallback(() => {
+
         return getCountriesDetail(name);
     }, [name]);
     const { data: countryName, loading, error } = useFetch(fetchName);
     const country = countryName?.[0];
+
+    useEffect(() => {
+        if (!country?.borders) return
+        const fetchBorders = async () => {
+            const result = await getBorderCountries(country.borders);
+            setBorderCountries(result);
+        };
+        fetchBorders();
+    }, [country?.borders])
+
     if (loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
     if (error) return <p className="text-red-800 text-2xl">Error: {error}</p>
     console.log('country:', country)
+    console.log('borderCountries:', borderCountries)
     const handleClick = () => {
         console.log('name:', name)
         return
@@ -27,7 +40,47 @@ export const HomeCountryDetail = () => {
                     </button>
                     <img src={country?.flags?.svg} alt={country?.flags?.alt} loading='lazy' className="" />
                 </div>
+                <div className="text-white">
+                    <h3 className="text-preset-2">{country?.name.common}</h3>
+                    <div className="">
+                        <div className="text-preset-4">
+                            <p className="country__items">Native Name:
+                                <span className="items__detail"> {Object.values(country?.name.nativeName || {})[0]?.common}</span>
+                            </p>
+                            <p className="country__items">Population:
+                                <span className="items__detail"> {country?.population}</span>
+                            </p>
+                            <p className="country__items">Region:
+                                <span className="items__detail"> {country?.region}</span>
+                            </p>
+                            <p className="country__items">Sub Region:
+                                <span className="items__detail"> {country?.subregion}</span>
+                            </p>
+                            <p className="country__items">Capital:
+                                <span className="items__detail"> {country?.capital}</span>
+                            </p>
+                        </div>
+                        <div className="">
+                            <p className="country__items">Top Level Domian:
+                                <span className="items__detail"> {country?.tld}</span>
+                            </p>
+                            <p className="country__items">Currencies:
+                                <span className="items__detail"> {Object.values(country?.currencies || {})[0]?.name}</span>
+                            </p>
+                            <p className="country__items">Languages:
+                                <span className="items__detail"> {Object.values(country?.languages || {}).join(", ")}</span>
+                            </p>
+                        </div>
+                        <div className="">
+                            <h4 className="">Border Countries:</h4>
+                            {country?.borders?.map((item, index) => (
+                                <div key={index.id}>
 
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     );

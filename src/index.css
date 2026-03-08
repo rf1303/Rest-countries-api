@@ -57,7 +57,17 @@ body,
 
     --spacing-clampHeader: clamp(1rem, -0.1518rem + 5.7589vw, 5.03125rem);
     --spacing-clampHeader01: clamp(1rem, -0.1186rem + 5.5928vw, 2.5625rem);
+    --spacing-card01:2px_9px_13px_3px_rgba(0,0,0,0.94);
+/* -webkit-box-shadow: 2px_2px_13px_3px_rgba(0,0,0,0.54);  */
+/* box-shadow: 2px 2px 13px 3px rgba(0,0,0,0.54); */
+}
 
+.countries__cards {
+ @apply w-full max-w-66 h-84   bg-blue-900 shadow-[2px_2px_13px_3px_rgba(0,0,0,0.34)] rounded-md text-white;
+}
+
+:cards__images {
+    @apply w-full h-40 object-cover rounded-t-md;
 }
 
 .country__names{
