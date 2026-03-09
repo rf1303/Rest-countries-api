@@ -40,6 +40,5 @@ export const getCountriesDetail = (name) => {
 
 export const getBorderCountries = (borderCountry) => {
     const countriesB = borderCountry || {};
-    console.log('countriesB:', countriesB)
     return fetchData(`/alpha?codes=${countriesB}`) 
 }
