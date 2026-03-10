@@ -9,6 +9,7 @@ export const SetRestCountries = ({ children }) => {
 
     const [borderCountries, setBorderCountries] = useState(null);
     const [ allCountries, setAllCountries ] = useState(null);
+    const [searchName, setSearchName] = useState('');
     const regionRef = useRef();
     const buttonRef = useRef();
     const listRef = useRef(null);
@@ -22,6 +23,7 @@ export const SetRestCountries = ({ children }) => {
         byRegion, setByRegion,
         focusIndex, setFocusIndex,
         allCountries, setAllCountries,
+        searchName, setSearchName,
         borderCountries, setBorderCountries,
         regionRef, buttonRef, listRef,
         optionRefs, optionsRegion, listboxId
