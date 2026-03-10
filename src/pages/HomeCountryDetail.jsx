@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getBorderCountries, getCountriesDetail } from '../sevices/api.js'
 import { useSettingCountries } from '../context-data/useSettingCountries.js'

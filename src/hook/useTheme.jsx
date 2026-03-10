@@ -5,7 +5,14 @@ export const useThemeSelect = () => {
         () => localStorage.getItem("themeSelect") || "dark"
     );
     useEffect(() => {
-        document.documentElement.classList.toggle("dark", themeSelect === "dark");
+        const html = document.documentElement;
+        if (themeSelect === 'dark') {
+            html.classList.add('dark');
+            html.classList.remove('light');
+        } else {
+            html.classList.add('light');
+            html.classList.remove('dark');
+        }
         localStorage.setItem("themeSelect", themeSelect);
     }, [themeSelect])
 

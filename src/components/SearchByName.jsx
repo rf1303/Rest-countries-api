@@ -8,13 +8,13 @@ export const SearchByName = () => {
         setSearchName(e.target.value);
     }
     return (
-        <div className="bg-blue-900 text-preset-6 text-white w-full max-w-120 py-3 flex items-center rounded-lg md:text-preset-5">
+        <div className="bg-blue-900 text-preset-6 text-white w-full max-w-120 py-3 flex items-center rounded-lg md:text-preset-5 light:bg-grey-50 light:text-grey-950">
             <span className="w-full max-w-12 flex items-center justify-center"><IconSearch aria-hidden="true" /></span>
             <input
                 type="text"
                 onChange={handleChange}
                 placeholder="Search fo a country..."
-                className="text-preset-6 text-white md:text-preset-5"
+                className="text-preset-6 text-white light:text-grey-950  md:text-preset-5"
             />
         </div>
 

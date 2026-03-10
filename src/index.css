@@ -18,18 +18,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body,
-#root {
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-    background-color: var(--color-blue-950);
-}
-
 @font-face {
     font-family: 'nunitoSans';
     src: url('../public/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.woff2'),
@@ -49,6 +37,7 @@ body,
     --color-grey-350: hsl(0, 0%, 59%);
     --color-grey-300: hsl(0, 0%, 70%);
     --color-grey-250: hsl(0, 0%, 77%);
+    --color-grey-100: hsl(0, 0%, 88%);
     --color-grey-50: hsl(0, 0%, 99%);
     --color-white: hsl(0, 100%, 100%);
 
@@ -68,9 +57,21 @@ body,
     /* -webkit-box-shadow: 2px_2px_13px_3px_rgba(0,0,0,0.54);  */
     /* box-shadow: 2px 2px 13px 3px rgba(0,0,0,0.54); */
 }
+body,
+#root {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    @apply bg-blue-950 light:bg-grey-100; 
+}
+
 
 .countries__cards {
-    @apply w-full max-w-66 h-84 bg-blue-900 rounded-md text-white;
+    @apply w-full max-w-66 h-84 bg-blue-900 rounded-md text-white light:bg-grey-50 light:text-grey-950;
 }
 
 .cards__images {
@@ -90,7 +91,7 @@ body,
 }
 
 .back__btn {
-    @apply w-34 py-2 rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2 shadow-md/15 inset-shadow-xs cursor-pointer;
+    @apply w-34 py-2 rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2 shadow-md/15 inset-shadow-xs cursor-pointer light:bg-grey-50 light:text-grey-950;
 }
 
 .countries__link {
@@ -101,17 +102,17 @@ body,
     box-shadow: 2px 2px 13px 3px rgba(0, 0, 0, 0.34);
 }
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color: #213547;
-        background-color: #ffffff;
-    }
-
-    a:hover {
-        color: #747bff;
-    }
-
-    button {
-        background-color: #f9f9f9;
-    }
-}
+/* @media (prefers-color-scheme: light) { */
+/*     :root { */
+/*         color: #213547; */
+/*         background-color: #ffffff; */
+/*     } */
+/**/
+/*     a:hover { */
+/*         color: #747bff; */
+/*     } */
+/**/
+/*     button { */
+/*         background-color: #f9f9f9; */
+/*     } */
+/* } */
