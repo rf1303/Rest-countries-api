@@ -2,15 +2,18 @@ import { useCallback } from 'react'
 import { getAllCountries, getRegionCountries } from '../sevices/api.js'
 import { useFetch } from '../hook/useFetch.jsx'
 import { Link } from 'react-router-dom'
+import { useSettingCountries } from '../context-data/useSettingCountries.js'
 
 export const CountriesList = ({ byRegion }) => {
+    const { allCountries, setAllCountries } = useSettingCountries();
     const fetchName = useCallback(() => {
         if (!byRegion) return getAllCountries();
         return getRegionCountries(byRegion);
     }, [byRegion]);
     const { data: countries, loading, error } = useFetch(fetchName);
-
-    console.log('countries:', countries)
+    
+    setAllCountries(countries);
+    console.log('allCountries:', allCountries)
     if (loading) return <p className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Cargando...</p>
     if (error) return <p className="mt-22 bg-red-800 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Error: {error}</p>
     return (
@@ -18,7 +21,7 @@ export const CountriesList = ({ byRegion }) => {
             <div className="w-full grid sm:grid-cols-[repeat(auto-fill,264px)] items-center justify-items-center gap-10 mx-auto sm:max-w-150 sm:gap-18 xl:max-w-318">
                 {countries?.map((item) => (
                     <Link key={item.cca3} to={`/name/${item.name.common}`}  
-                        className='countries__cards'>
+                        className='countries__cards shadow__cards'>
                         <img src={item.flags.svg} alt={item.flags.alt} loading='lazy' className="cards__images" />
                         <div className="grid gap-4 pt-5.5 pb-12 px-6">
                             <h2 className="country__names">{item.name.common}</h2>

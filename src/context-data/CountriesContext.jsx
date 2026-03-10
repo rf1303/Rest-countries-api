@@ -7,6 +7,8 @@ export const SetRestCountries = ({ children }) => {
     const [byRegion, setByRegion] = useState(null);
     const [focusIndex, setFocusIndex] = useState(-1);
 
+    const [borderCountries, setBorderCountries] = useState(null);
+    const [ allCountries, setAllCountries ] = useState(null);
     const regionRef = useRef();
     const buttonRef = useRef();
     const listRef = useRef(null);
@@ -19,6 +21,8 @@ export const SetRestCountries = ({ children }) => {
         open, setOpen,
         byRegion, setByRegion,
         focusIndex, setFocusIndex,
+        allCountries, setAllCountries,
+        borderCountries, setBorderCountries,
         regionRef, buttonRef, listRef,
         optionRefs, optionsRegion, listboxId
     }}>{children}</SettingRestCountries.Provider>
