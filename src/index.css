@@ -1,4 +1,10 @@
 @import 'tailwindcss';
+@custom-variant light (&:where(.light, .light *));
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
+:root {
+    color-scheme: light dark;
+}
 
 *,
 *::before,
@@ -84,26 +90,28 @@ body,
 }
 
 .back__btn {
-    @apply w-34 py-2 rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2 shadow-md/15 inset-shadow-xs  cursor-pointer;
+    @apply w-34 py-2 rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2 shadow-md/15 inset-shadow-xs cursor-pointer;
 }
 
 .countries__link {
-    @apply bg-blue-900 text-preset-5 text-center font-light rounded-sm min-w-24 px-4 py-1 shadow-md/15 inset-shadow-xs ;
+    @apply bg-blue-900 text-preset-5 text-center font-light rounded-sm min-w-24 px-4 py-1 shadow-md/15 inset-shadow-xs;
 }
 
 .shadow__cards {
     box-shadow: 2px 2px 13px 3px rgba(0, 0, 0, 0.34);
 }
 
-/* @media (prefers-color-scheme: light) { */
-/*   :root { */
-/*     color: #213547; */
-/*     background-color: #ffffff; */
-/*   } */
-/*   a:hover { */
-/*     color: #747bff; */
-/*   } */
-/*   button { */
-/*     background-color: #f9f9f9; */
-/*   } */
-/* } */
+@media (prefers-color-scheme: light) {
+    :root {
+        color: #213547;
+        background-color: #ffffff;
+    }
+
+    a:hover {
+        color: #747bff;
+    }
+
+    button {
+        background-color: #f9f9f9;
+    }
+}

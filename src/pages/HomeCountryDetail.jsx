@@ -41,7 +41,7 @@ export const HomeCountryDetail = () => {
                 <div className="w-full grid gap-14 xl:grid-cols-2 xl:justify-between xl:">
                     <img src={country?.flags?.svg} alt={country?.flags?.alt}
                         loading='lazy' className="h-full min-h-57 rounded-md shadow-md/10 xl:max-w-140 xl:h-100" />
-                    <div className="text-white max-w-150 xl:self-center ">
+                    <div className="text-white max-w-150 xl:self-center light:text-black ">
                         <h3 className="text-preset-2 font-extrabold sm:text-preset-1">{country?.name.common}</h3>
                         <div className="grid gap-8 md:grid-cols-2 md:justify-between xl:gap-14">
                             <div className="text-preset-4 leading-8">
