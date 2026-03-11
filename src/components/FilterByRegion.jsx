@@ -15,13 +15,27 @@ export const RegionsOptions = () => {
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
         if (open && focusIndex >= 0) {
             optionRefs.current[focusIndex]?.focus();
         }
-    }, [focusIndex, open]);
+    }, [focusIndex, open]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    useEffect(() => {
+        const handleGlobalKeyDown = (e) => {
+            if (e.key === 'Escape' && open) {
+                e.preventDefault();
+                setOpen(false);
+                setFocusIndex(-1);
+                buttonRef.current?.focus();
+            }
+        };
+        
+        document.addEventListener('keydown', handleGlobalKeyDown);
+        return () => document.removeEventListener('keydown', handleGlobalKeyDown);
+    }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const handleOptionsKeys = (e, index) => {
         switch (e.key) {

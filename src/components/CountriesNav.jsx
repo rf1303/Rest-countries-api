@@ -4,10 +4,8 @@ import { IconFilter } from '../../public/images/IconsSvg.jsx'
 import { RegionsOptions } from "./FilterByRegion.jsx"
 import { CountriesList } from "./CountriesList.jsx"
 
-const optionsRegion = ["Africa", "Americas", "Asia", "Europa", "Oceania"];
-
 export const CountriesNav = () => {
-    const { open, setOpen, byRegion, setFocusIndex, regionRef, buttonRef, listboxId } = useSettingCountries();
+    const { open, setOpen, byRegion, setFocusIndex, regionRef, buttonRef, listboxId, optionsRegion } = useSettingCountries();
 
     const handleClick = () => {
         setOpen(o => !o);
@@ -54,7 +52,7 @@ export const CountriesNav = () => {
                     <RegionsOptions />
                 </div>
             </nav>
-            <CountriesList byRegion={byRegion} />
+            <CountriesList  />
         </>
     );
 }
