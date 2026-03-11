@@ -38,7 +38,6 @@ export const CountriesNav = () => {
         <>
             <div className="w-full max-w-318 flex flex-col items-start justify-center gap-10 sm:gap-0 sm:flex-row sm:items-center sm:justify-between px-4 md:px-10 ">
                 <SearchByName />
-                {/* className="text-preset-6 text-white md:text-preset-5 max-w-50 bg-blue-900 rounded-lg py-4 px-5" */}
                 <div ref={regionRef} className="relative">
                     <button ref={buttonRef} id="region-trigger"
                         type="button" aria-haspopup="listbox"
@@ -48,7 +47,7 @@ export const CountriesNav = () => {
                             : "Filter by Region"}
                         onClick={handleClick}
                         onKeyDown={handleKeyDown}
-                        className={`text-preset-6 text-white md:text-preset-5 max-w-50 bg-blue-900 rounded-lg py-1 px-5 cursor-pointer flex items-center gap-4`}>
+                        className={`text-preset-6 text-white md:text-preset-5 max-w-50 bg-blue-900 rounded-lg py-1 px-5 cursor-pointer flex items-center gap-4 light:bg-blue-250 light:text-grey-950`}>
                         <span className="w-full">{byRegion ?? "Filter by Region"}</span>
                         <IconFilter open={open} />
                     </button>

@@ -75,7 +75,8 @@ export const RegionsOptions = () => {
             className={`bg-blue-900 absolute inset-x-0 top-14  
                      max-w-50 w-full px-3 py-3 z-50 
                      rounded-t-sm rounded-b-md transition-all
-                     duration-300 origin-top ${open
+                     duration-300 origin-top light:bg-blue-250 
+                     light:text-grey-950 ${open
                     ? "opacity-100 scale-y-100 shadow-xl shadow-black/30"
                     : "opacity-0 scale-y-1 pointer-events-none "}`
             }>
@@ -88,10 +89,11 @@ export const RegionsOptions = () => {
                         tabIndex={open ? 0 : -1}
                         onClick={() => handleSelect(region)}
                         onKeyDown={(e) => handleOptionsKeys(e, i)}
-                        className={`flex items-center text-preset-5
+                        className={`flex items-center text-preset-5 text-white
                         transition-colors duration-300 focus:outline-none
-                        ${focusIndex === i ? "bg-blue-focus text-white rounded-sm"
-                                : "text-white hover:bg-blue-focus focus-visible:bg-blue-focus"}
+                        light:text-grey-950
+                        ${focusIndex === i ? "bg-blue-focus text-white light:text-white rounded-sm"
+                                : "text-white light:text-grey-950 hover:bg-blue-focus focus-visible:bg-blue-focus"}
                         `}
                     >
                         {region}

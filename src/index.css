@@ -29,9 +29,12 @@ html {
 
 
 @theme {
-    --color-blue-900: hsla(209, 23%, 22%, 100%);
+    --color-blue-900: hsla(209, 23%, 22%);
+    --color-blue-850: hsla(209, 23%, 30%);
+    --color-blue-250: hsla(209, 23%, 94%);
     --color-blue-focus: hsl(209, 23%, 32%);
     --color-blue-950: hsl(207, 26%, 17%);
+    --color-blue-150: hsl(207, 26%, 85%);
     --color-grey-950: hsl(200, 15%, 8%);
     --color-grey-400: hsl(0, 0%, 50%);
     --color-grey-350: hsl(0, 0%, 59%);
@@ -66,12 +69,12 @@ body,
     margin: 0;
     padding: 0;
     vertical-align: baseline;
-    @apply bg-blue-950 light:bg-grey-100; 
+    @apply bg-blue-950 light:bg-blue-150; 
 }
 
 
 .countries__cards {
-    @apply w-full max-w-66 h-84 bg-blue-900 rounded-md text-white light:bg-grey-50 light:text-grey-950;
+    @apply w-full max-w-66 h-84 bg-blue-900 rounded-md text-white light:bg-blue-250 light:text-grey-950;
 }
 
 .cards__images {
@@ -91,11 +94,11 @@ body,
 }
 
 .back__btn {
-    @apply w-34 py-2 rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2 shadow-md/15 inset-shadow-xs cursor-pointer light:bg-grey-50 light:text-grey-950;
+    @apply w-34 py-2 rounded-md bg-blue-900 text-preset-4 text-white flex items-center justify-center gap-2 shadow-md/15 inset-shadow-xs cursor-pointer light:bg-blue-250 light:text-grey-950;
 }
 
 .countries__link {
-    @apply bg-blue-900 text-preset-5 text-center font-light rounded-sm min-w-24 px-4 py-1 shadow-md/15 inset-shadow-xs;
+    @apply bg-blue-900 text-preset-5 text-center font-light rounded-sm min-w-24 px-4 py-1 shadow-lg/15 inset-shadow-xs light:bg-blue-250 light:text-grey-950;
 }
 
 .shadow__cards {
