@@ -32,6 +32,7 @@ html {
     --color-blue-900: hsla(209, 23%, 22%);
     --color-blue-850: hsla(209, 23%, 30%);
     --color-blue-250: hsla(209, 23%, 94%);
+    --color-blue-350: hsla(209, 23%, 90%);
     --color-blue-focus: hsl(209, 23%, 32%);
     --color-blue-950: hsl(207, 26%, 17%);
     --color-blue-150: hsl(207, 26%, 85%);
@@ -98,7 +99,7 @@ body,
 }
 
 .countries__link {
-    @apply bg-blue-900 text-preset-5 text-center font-light rounded-sm min-w-24 px-4 py-1 shadow-lg/15 inset-shadow-xs light:bg-blue-250 light:text-grey-950;
+    @apply bg-blue-900 text-preset-5 text-center font-light rounded-sm min-w-24 px-4 py-1 shadow-lg/15 inset-shadow-xs light:bg-blue-350 light:text-grey-950;
 }
 
 .shadow__cards {

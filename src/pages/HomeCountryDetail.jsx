@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getBorderCountries, getCountriesDetail } from '../sevices/api.js'
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
 import { useFetch } from '../hook/useFetch.jsx'
+import { BorderCountries } from '../components/bordersCountries.jsx'
 
 export const HomeCountryDetail = () => {
     const navigate = useNavigate();
@@ -72,17 +73,18 @@ export const HomeCountryDetail = () => {
                                     <span className="items__detail"> {Object.values(country?.languages || {}).join(", ")}</span>
                                 </p>
                             </div>
-                            <div className="w-full flex flex-col gap-4 sm:flex-row md:col-span-2 ">
-                                <h4 className="w-full max-w-fit text-preset-4 font-semibold">Border Countries:</h4>
-                                <div className=' flex flex-wrap items-center justify-center gap-4 '>
-                                    {borderCountries?.map(item => (
-                                        <Link key={item.cca3} to={`/name/${item.name.common}`}
-                                            className='countries__link'>
-                                            {item.name.common}
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
+                            <BorderCountries borders={borderCountries} />
+                            {/* <div className="w-full flex flex-col gap-4 sm:flex-row md:col-span-2 "> */}
+                            {/*     <h4 className="w-full max-w-fit text-preset-4 font-semibold">Border Countries:</h4> */}
+                            {/*     <div className=' flex flex-wrap items-center justify-center gap-4 '> */}
+                            {/*         {borderCountries?.map(item => ( */}
+                            {/*             <Link key={item.cca3} to={`/name/${item.name.common}`} */}
+                            {/*                 className='countries__link'> */}
+                            {/*                 {item.name.common} */}
+                            {/*             </Link> */}
+                            {/*         ))} */}
+                            {/*     </div> */}
+                            {/* </div> */}
                         </div>
                     </div>
                 </div>
