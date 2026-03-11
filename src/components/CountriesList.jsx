@@ -17,8 +17,8 @@ export const CountriesList = ({ byRegion }) => {
     }, [ countries, setAllCountries ]);
     console.log('allCountries:', allCountries);
 
-    if (loading) return <p className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Cargando...</p>
-    if (error) return <p className="mt-22 bg-red-800 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Error: {error}</p>
+    if (loading) return <p role='status' aria-live='polite' className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Loading...</p>
+    if (error) return <p role='alert' aria-live='assertive' className="mt-22 bg-red-800 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Error: {error}</p>
     const filterCountries = searchName
           ? allCountries.filter((item) => item.name.common.toLowerCase().includes(searchName.toLowerCase()))
           : countries;

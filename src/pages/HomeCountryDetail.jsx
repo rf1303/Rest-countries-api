@@ -28,7 +28,7 @@ export const HomeCountryDetail = () => {
         fetchBorders();
     }, [country?.borders])
 
-    if (loading) return <p role='status' aria-live='polite' className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Cargando...</p>
+    if (loading) return <p role='status' aria-live='polite' className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Loading ...</p>
     if (error) return <p role='alert' aria-live='assertive' className="mt-22 bg-red-800 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Error: {error}</p>
 
     return (
@@ -41,7 +41,7 @@ export const HomeCountryDetail = () => {
                 </button>
 
                 <div className="w-full grid gap-14 xl:grid-cols-2 xl:justify-between xl:">
-                    <img src={country?.flags?.svg} alt={country?.flags?.alt}
+                    <img src={country?.flags?.svg} alt={country?.flags?.alt || `Flag of ${country?.name.common}`}
                         loading='lazy' className="h-full min-h-57 rounded-md xl:max-w-140 xl:h-100" />
                     <div className="text-white max-w-150 xl:self-center light:text-black ">
                         <h1 className="text-preset-2 font-extrabold sm:text-preset-1">{country?.name.common}</h1>
