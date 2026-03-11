@@ -9,7 +9,7 @@ export const BorderCountries = ({ borders }) => {
         <div className="w-full flex flex-col gap-4 sm:flex-row md:col-span-2 ">
             <h4 className="w-full max-w-fit text-preset-4 font-semibold">Border Countries:</h4>
             <div className=' flex flex-wrap items-center justify-center gap-4 '>
-                {borders?.map(item => (
+                {borders.map(item => (
                     <Link key={item.cca3} to={`/name/${item.name.common}`}
                         className='countries__link'>
                         {item.name.common}

@@ -36,7 +36,7 @@ export const CountriesNav = () => {
 
     return (
         <>
-            <div className="w-full max-w-318 flex flex-col items-start justify-center gap-10 sm:gap-0 sm:flex-row sm:items-center sm:justify-between px-4 md:px-10 ">
+            <nav className="w-full max-w-318 flex flex-col items-start justify-center gap-10 sm:gap-0 sm:flex-row sm:items-center sm:justify-between px-4 md:px-10 ">
                 <SearchByName />
                 <div ref={regionRef} className="relative">
                     <button ref={buttonRef} id="region-trigger"
@@ -53,7 +53,7 @@ export const CountriesNav = () => {
                     </button>
                     <RegionsOptions />
                 </div>
-            </div>
+            </nav>
             <CountriesList byRegion={byRegion} />
         </>
     );

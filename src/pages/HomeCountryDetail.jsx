@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { getBorderCountries, getCountriesDetail } from '../sevices/api.js'
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
 import { useFetch } from '../hook/useFetch.jsx'
@@ -28,13 +28,14 @@ export const HomeCountryDetail = () => {
         fetchBorders();
     }, [country?.borders])
 
-    if (loading) return <p className="text-cyan-700 text-2xl">Cargando...</p>
-    if (error) return <p className="text-red-800 text-2xl">Error: {error}</p>
+    if (loading) return <p role='status' aria-live='polite' className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Cargando...</p>
+    if (error) return <p role='alert' aria-live='assertive' className="mt-22 bg-red-800 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Error: {error}</p>
 
     return (
         <>
             <div className="w-full max-w-clampDetail grid place-items-center gap-12 mt-6 mx-6 xl:max-w-7xl ">
-                <button onClick={handleClick} className="back__btn  justify-self-start">
+                <button onClick={handleClick}  aria-label="Go back to previous page"
+                    className="back__btn  justify-self-start">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><g fill="none" fillRule="evenodd"><path d="M24 0v24H0V0h24ZM12.594 23.258l-.012.002-.071.035-.02.004-.014-.004-.071-.036c-.01-.003-.019 0-.024.006l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.016-.018Zm.264-.113-.014.002-.184.093-.01.01-.003.011.018.43.005.012.008.008.201.092c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.003-.011.018-.43-.003-.012-.01-.01-.184-.092Z" /><path fill="currentColor" d="M10 6.414 4.413 12 10 17.586V15c0-.545.455-1 1-1h9v-4h-9a1 1 0 0 1-1-1V6.414Zm-.902-1.926C10.168 3.417 12 4.175 12 5.69V8h8a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-8v2.31c0 1.515-1.831 2.273-2.902 1.202l-6.453-6.451a1.5 1.5 0 0 1 0-2.122l6.453-6.451Z" /></g></svg>
                     Back
                 </button>
@@ -43,7 +44,7 @@ export const HomeCountryDetail = () => {
                     <img src={country?.flags?.svg} alt={country?.flags?.alt}
                         loading='lazy' className="h-full min-h-57 rounded-md xl:max-w-140 xl:h-100" />
                     <div className="text-white max-w-150 xl:self-center light:text-black ">
-                        <h3 className="text-preset-2 font-extrabold sm:text-preset-1">{country?.name.common}</h3>
+                        <h1 className="text-preset-2 font-extrabold sm:text-preset-1">{country?.name.common}</h1>
                         <div className="grid gap-8 md:grid-cols-2 md:justify-between xl:gap-14">
                             <div className="text-preset-4 leading-8">
                                 <p className="country__items">Native Name:
@@ -74,17 +75,6 @@ export const HomeCountryDetail = () => {
                                 </p>
                             </div>
                             <BorderCountries borders={borderCountries} />
-                            {/* <div className="w-full flex flex-col gap-4 sm:flex-row md:col-span-2 "> */}
-                            {/*     <h4 className="w-full max-w-fit text-preset-4 font-semibold">Border Countries:</h4> */}
-                            {/*     <div className=' flex flex-wrap items-center justify-center gap-4 '> */}
-                            {/*         {borderCountries?.map(item => ( */}
-                            {/*             <Link key={item.cca3} to={`/name/${item.name.common}`} */}
-                            {/*                 className='countries__link'> */}
-                            {/*                 {item.name.common} */}
-                            {/*             </Link> */}
-                            {/*         ))} */}
-                            {/*     </div> */}
-                            {/* </div> */}
                         </div>
                     </div>
                 </div>

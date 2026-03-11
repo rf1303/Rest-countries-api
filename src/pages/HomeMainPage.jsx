@@ -6,6 +6,7 @@ export const HomeCountryMain = () => {
         <div className='grid gap-4 font-nunitoSans md:gap-10'>
             <HeaderPage />
             <main className="w-full grid place-items-center gap-8 sm:gap-12">
+                 <h1 className="sr-only">Countries</h1>
                 <Outlet />
             </main>
         </div>
