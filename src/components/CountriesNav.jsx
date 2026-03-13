@@ -1,7 +1,7 @@
 import { useSettingCountries } from '../context-data/useSettingCountries.js'
 import { SearchByName } from './SearchByName.jsx'
 import { IconFilter } from '../../public/images/IconsSvg.jsx'
-import { RegionsOptions } from "./FilterByRegion.jsx"
+import { RegionsOptions } from "./RegionDropDown.jsx"
 import { CountriesList } from "./CountriesList.jsx"
 
 export const CountriesNav = () => {

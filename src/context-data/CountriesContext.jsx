@@ -15,7 +15,7 @@ export const SetRestCountries = ({ children }) => {
     const listRef = useRef(null);
     const optionRefs = useRef([]);
     const listboxId = "region-listbox";
-    const optionsRegion = ["Africa", "America", "Asia", "Europa", "Oceania"];
+    const optionsRegion = ["Africa", "Americas", "Asia", "Europa", "Oceania"];
 
     return (
     <SettingRestCountries.Provider value={{
