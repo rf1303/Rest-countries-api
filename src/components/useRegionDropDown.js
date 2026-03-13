@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useSettingCountries } from '../context-data/useSettingCountries.js';
 
 export const useRegionsOptions = () => {
@@ -6,7 +6,7 @@ export const useRegionsOptions = () => {
         open, setOpen,
         byRegion, setByRegion,
         focusIndex, setFocusIndex,
-        optionRefs, listboxId,
+        optionRefs, listboxId, listRef,
         optionsRegion, buttonRef,
         regionRef
     } = useSettingCountries();
@@ -85,5 +85,32 @@ export const useRegionsOptions = () => {
         buttonRef.current?.focus();
     }
 
-    return
+    const toggle = () => {
+        setOpen(o => !o);
+        if (!open) setFocusIndex(0);
+    }
+
+    return {
+        open,
+        isOpen: open,
+        toggle,
+        close: () => {
+            setOpen(false);
+            setFocusIndex(-1);
+            buttonRef.current?.focus();
+        },
+        handleSelect,
+        handleOptionsKeys,
+        handleKeyDown: handleOptionsKeys,
+        byRegion,
+        setByRegion,
+        focusIndex,
+        setFocusIndex,
+        optionRefs,
+        listboxId,
+        optionsRegion,
+        buttonRef,
+        regionRef,
+        listRef
+    };
 }
