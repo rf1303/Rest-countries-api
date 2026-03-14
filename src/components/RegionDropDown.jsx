@@ -25,7 +25,7 @@ export const RegionsOptions = () => {
                     <li key={region} id={`region-option-${i}`}
                         ref={(el) => (optionRefs.current[i] = el)}
                         aria-selected={isSelect} role="option"
-                        tabIndex={open ? 0 : -1}
+                        tabIndex={open && focusIndex === i ? 0 : -1}
                         onClick={() => handleSelect(region)}
                         onKeyDown={(e) => handleOptionsKeys(e, i)}
                         className={`flex items-center text-preset-5 text-white
