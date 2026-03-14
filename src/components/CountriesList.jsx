@@ -1,16 +1,22 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState, useEffect } from 'react'
 import { getAllCountries, getRegionCountries } from '../sevices/api.js'
 import { useFetch } from '../hook/useFetch.jsx'
 import { Link } from 'react-router-dom'
 import { useCountries } from '../context-data/useCountries.js'
 
 export const CountriesList = () => {
+    const [isClient, setIsClient] = useState(false);
     const { allCountries, searchName, byRegion } = useCountries();
     const fetchName = useCallback(() => {
         if (!byRegion) return getAllCountries();
         return getRegionCountries(byRegion);
     }, [byRegion]);
     const { data: countries, loading, error } = useFetch(fetchName);
+
+    useEffect(() => {
+        setIsClient(true);
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+    }, []);
 
     const filterCountries = useMemo(() => {
         const sourceData = searchName ? (allCountries || countries) : countries;
@@ -21,6 +27,8 @@ export const CountriesList = () => {
         }
         return sourceData;
     }, [searchName, allCountries, countries])
+
+    if (!isClient) return null;
 
     if (loading) return <p role='status' aria-live='polite' className="mt-22 bg-cyan-700 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Loading...</p>
     if (error) return <p role='alert' aria-live='assertive' className="mt-22 bg-red-800 text-gray-200 text-4xl rounded-md px-8 py-4 font-bold tracking-widest">Error: {error}</p> 
