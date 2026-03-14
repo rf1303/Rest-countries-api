@@ -1,11 +1,11 @@
-import { useSettingCountries } from '../context-data/useSettingCountries.js'
+import { useCountries } from '../context-data/useCountries.js'
 import { SearchByName } from './SearchByName.jsx'
 import { IconFilter } from '../../public/images/IconsSvg.jsx'
 import { RegionsOptions } from "./RegionDropDown.jsx"
 import { CountriesList } from "./CountriesList.jsx"
 
 export const CountriesNav = () => {
-    const { open, setOpen, byRegion, setFocusIndex, regionRef, buttonRef, listboxId, optionsRegion } = useSettingCountries();
+    const { open, setOpen, byRegion, setFocusIndex, regionRef, buttonRef, listboxId, optionsRegion } = useCountries();
 
     const handleClick = () => {
         setOpen(o => !o);

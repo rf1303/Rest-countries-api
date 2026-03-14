@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { getBorderCountries, getCountriesDetail } from '../sevices/api.js'
-import { useSettingCountries } from '../context-data/useSettingCountries.js'
+import { useCountries } from '../context-data/useCountries.js'
 import { useFetch } from '../hook/useFetch.jsx'
 import { BorderCountries } from '../components/bordersCountries.jsx'
 
@@ -10,7 +10,7 @@ export const HomeCountryDetail = () => {
     const handleClick = () => {
         navigate(-1);
     }
-    const { borderCountries, setBorderCountries } = useSettingCountries();
+    const { borderCountries, setBorderCountries } = useCountries();
     const { name } = useParams();
     const fetchName = useCallback(() => {
 

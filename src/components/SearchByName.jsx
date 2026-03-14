@@ -1,8 +1,8 @@
-import { useSettingCountries } from '../context-data/useSettingCountries.js'
+import { useCountries } from '../context-data/useCountries.js'
 import { IconSearch } from '../../public/images/IconsSvg.jsx';
 
 export const SearchByName = () => {
-    const { setSearchName } = useSettingCountries();
+    const { setSearchName } = useCountries();
     const handleChange = (e) => {
         setSearchName(e.target.value);
     }

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSettingCountries } from '../context-data/useSettingCountries.js';
+import { useCountries } from '../context-data/useCountries.js';
 
 export const useRegionsOptions = () => {
     const {
@@ -9,7 +9,7 @@ export const useRegionsOptions = () => {
         optionRefs, listboxId, listRef,
         optionsRegion, buttonRef,
         regionRef
-    } = useSettingCountries();
+    } = useCountries();
 
     useEffect(() => {
         const handleClickOutside = (e) => {

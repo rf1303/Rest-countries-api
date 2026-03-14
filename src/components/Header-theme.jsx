@@ -1,10 +1,10 @@
 import { useThemeSelect } from '../hook/useTheme.jsx'
-import { useSettingCountries } from '../context-data/useSettingCountries.js'
+import { useCountries } from '../context-data/useCountries.js'
 import { IconMoon, IconSun } from '../../public/images/IconsSvg.jsx';
 import { Link } from 'react-router-dom'
 
 export const HeaderPage = () => {
-    const { setByRegion } = useSettingCountries();
+    const { setByRegion } = useCountries();
     const { themeSelect, toggleTheme } = useThemeSelect();
     const isDark = themeSelect === "dark";
     const handleClick = () => {

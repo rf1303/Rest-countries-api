@@ -2,10 +2,10 @@ import { useCallback, useMemo } from 'react'
 import { getAllCountries, getRegionCountries } from '../sevices/api.js'
 import { useFetch } from '../hook/useFetch.jsx'
 import { Link } from 'react-router-dom'
-import { useSettingCountries } from '../context-data/useSettingCountries.js'
+import { useCountries } from '../context-data/useCountries.js'
 
 export const CountriesList = () => {
-    const { allCountries, searchName, byRegion } = useSettingCountries();
+    const { allCountries, searchName, byRegion } = useCountries();
     const fetchName = useCallback(() => {
         if (!byRegion) return getAllCountries();
         return getRegionCountries(byRegion);
