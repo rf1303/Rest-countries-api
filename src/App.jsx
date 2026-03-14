@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { HomeCountryMain } from './pages/HomeCountryMain.jsx'; 
+import { HomeCountryMain } from './pages/HomeMainPage.jsx'; 
 import { CountriesNav } from './components/CountriesNav.jsx';
 
 const HomeCountryDetail = lazy(() => import('./pages/HomeCountryDetail.jsx'));
