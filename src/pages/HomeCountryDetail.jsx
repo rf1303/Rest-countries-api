@@ -82,3 +82,5 @@ export const HomeCountryDetail = () => {
         </>
     );
 }
+
+export default HomeCountryDetail;

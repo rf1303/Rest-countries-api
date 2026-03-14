@@ -1,16 +1,26 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { HomeCountryMain } from './pages/HomeMainPage.jsx'; 
-import { HomeCountryDetail } from './pages/HomeCountryDetail.jsx'; 
+import { HomeCountryMain } from './pages/HomeCountryMain.jsx'; 
 import { CountriesNav } from './components/CountriesNav.jsx';
+
+const HomeCountryDetail = lazy(() => import('./pages/HomeCountryDetail.jsx'));
+
+const Loading = () => (
+    <div className="flex items-center justify-center min-h-screen">
+        <p className="text-xl">Loading...</p>
+    </div>
+);
 
 function App() {
     return (
-        <Routes>
-            <Route path='/' element={<HomeCountryMain />}>
-                <Route index element={<CountriesNav />} />
-                <Route path='name/:name' element={<HomeCountryDetail />} />
-            </Route>
-        </Routes>
+        <Suspense fallback={<Loading />}>
+            <Routes>
+                <Route path='/' element={<HomeCountryMain />}>
+                    <Route index element={<CountriesNav />} />
+                    <Route path='name/:name' element={<HomeCountryDetail />} />
+                </Route>
+            </Routes>
+        </Suspense>
     )
 }
 
