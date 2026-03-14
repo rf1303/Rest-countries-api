@@ -22,13 +22,13 @@ const CountryCard = ({ item }) => (
             <h2 className="country__names">{item.name.common}</h2>
             <div className="grid gap-2 leading-none">
                 <p className="country__items">Population: 
-                    <span className="items__detail">{item.population}</span>
+                    <span className="items__detail"> {item.population}</span>
                 </p>
                 <p className="country__items">Region: 
-                    <span className="items__detail">{item.region}</span>
+                    <span className="items__detail"> {item.region}</span>
                 </p>
                 <p className="country__items">Capital: 
-                    <span className="items__detail">{item.capital}</span>
+                    <span className="items__detail"> {item.capital}</span>
                 </p>
             </div>
         </div>
